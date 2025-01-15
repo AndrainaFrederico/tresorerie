@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signin</title>
+    <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+    <!--<script src="{% static 'js/homescript.js' %}"></script>-->
+</head>
+<body>
+    {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+    {% endif %}
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="POST">
+                {% csrf_token %}
+                <h1>Hamorona Kaonty</h1>
+                <input type="text" placeholder="Anarana" name="nom" id="nom">
+                <input type="email" placeholder="Mailaka" name="mail" id="mail">
+                <input type="password" placeholder="Tenimiafina" name="mdp" id="mdp">
+                <input type="password" placeholder="Amarino ny Tenimiafina" name="mdpverif" id="mdpverif">
+                <input type="text" placeholder="Ny Tompon'Andraikitra" name="imAdmin" id="imAdmin">
+                <input type="password" placeholder="Tenimiafina ny Tompon'Andraikitra" name="mdpAdmin" id="mdpAdmin">
+                <input type="hidden" name="signup_form" value="signup_form">
+                <input class="button" type="submit" value="Hamorona">
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form method="POST">
+                {% csrf_token %}
+                <h1>Hiditra</h1>
+                <input type="email" placeholder="Mailaka" name="mail" id="mail">
+                <input type="password" placeholder="Tenimiafina" name="mdp" id="mdp">
+                <input type="hidden" name="login_form" value="login_form">
+                <input class="button" type="submit" value="Hiditra">
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Tongasoa Indray!</h1>
+                    <p>Fenoy Ireo rehetra takiana etsy afahanao mamorona Kaonty iray na koa miantsoa ny Tompon'andraikitra voalohany an'ity tranon-kala ity</p>
+                    <p>Raha toa ka efa manana enao dia miditra fotsiny</p>
+                    <button class="hidden" id="login">Hiditra </button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Miarahaba eh! Tongasoa!</h1>
+                    <p>Ampidiro daholo ireo izay angatahina rehetra afahanao miditra sy mampiasa ity Tranon-kala ity</p>
+                    <p>Na mamorona Kaonty</p>
+                    <button class="hidden" id="register" >Hamorona</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container=document.getElementById('container');
+        const registerBtn=document.getElementById('register');
+        const loginBtn=document.getElementById('login');
+        registerBtn.addEventListener('click', ()=>{
+            container.classList.add("active");
+        });
+        loginBtn.addEventListener('click', ()=>{
+            container.classList.remove("active");
+        });
+    </script>
+</body>
+</html>

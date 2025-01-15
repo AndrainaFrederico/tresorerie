@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord</title>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/datatable/dataTables.js' %}"></script>
+    <script src="{% static 'js/datatable/dataTables.responsive.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/dataTables.dataTables.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
+    
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'images/logo/dashboard.png' %}" alt="logo">
+                    <h2>TRESORERIE</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <img class="logo-nav" src="{% static 'images/logo/menu.png' %}" alt="">
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="" class="active">
+                    <img class="logo-nav"src="{% static 'images/logo/dashboard.png' %}" alt="logo">
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="">
+                    <img class="logo-nav" src="{% static 'images/logo/dashboard.png' %}" alt="logo">
+                    <h3>Caisse</h3>
+                </a>
+                <a href="">
+                    <img class="logo-nav" src="{% static 'images/logo/dashboard.png' %}" alt="logo">
+                    <h3>Grande Caisse</h3>
+                </a>
+                <a href="">
+                    <img class="logo-nav" src="{% static 'images/logo/dashboard.png' %}" alt="logo">
+                    <h3>Petite Caisse</h3>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <img class="logo-nav" src="{% static 'images/logo/logout.png' %}" alt="">
+                    <h3>Deconnexion</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>DASHBOARD</h1>
+            
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+                <div class="caisse">
+                    <img class="logo-nav" src="{% static 'images/logo/dashboard.png' %}" alt="">
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Caisse Total</h3>
+                            <h1>5.000.000ar</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        Dernierement
+                    </small>
+                </div>
+                <!--Fin Caisse-->
+                <div class="grande-caisse">
+                    <img class="logo-nav" src="{% static 'images/logo/dashboard.png' %}" alt="">
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Grande Caisse Total</h3>
+                            <h1>4.000.000ar</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        Dernierement
+                    </small>
+                </div>
+                <!--Fin Grande Caisse-->
+                <div class="petite-caisse">
+                    <img class="logo-nav" src="{% static 'images/logo/dashboard.png' %}" alt="">
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Petite Caisse Total</h3>
+                            <h1>1.000.000ar</h1>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        Dernierement
+                    </small>
+                </div>
+            </div>
+            <div class="recent-order">
+                <h2>Dépense récent</h2>
+            </div>
+            <table class="datatable" >
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Dépense</th>
+                        <th>Somme</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>15/02/24</td>
+                        <td>Voninkazo</td>
+                        <td>15.000ar</td>
+                    </tr>
+                    <tr>
+                        <td>15/02/24</td>
+                        <td>Voninkazo</td>
+                        <td>15.000ar</td>
+                    </tr>
+                    <tr>
+                        <td>15/02/24</td>
+                        <td>Voninkazo</td>
+                        <td>15.000ar</td>
+                    </tr>
+                    <tr>
+                        <td>15/02/24</td>
+                        <td>Voninkazo</td>
+                        <td>15.000ar</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--Fin Petite Caisse-->
+            {% block content %}
+            <!-- Le contenu spécifique à chaque utilisateur sera inclus ici -->
+            {% endblock %}
+        </main>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+      $(".datatable").DataTable({
+        language: {
+          url: "{% static 'js/langue/fr_fr.json' %}",
+        },
+        pageLength: 15,
+        lengthMenu: [5, 10, 25, 50, 100],
+        order: [[0, "asc"]],
+        searching: true,
+        paging: true,
+        info: true,
+      });
+    });
+  </script>
+</html>
