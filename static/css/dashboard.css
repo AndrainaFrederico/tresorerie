@@ -57,6 +57,19 @@ body{
     color: var(--color-dark);
 }
 
+.content-section {
+    display: none; /* Tout le contenu est caché par défaut */
+}
+
+.content-section.active {
+    display: block; /* Afficher seulement la section active */
+}
+
+.sidebar a.active {
+    background-color: #f0f0f0; /* Optionnel : marquer l'élément actif */
+}
+
+
 a{
     color: var(--color-dark);
 }
