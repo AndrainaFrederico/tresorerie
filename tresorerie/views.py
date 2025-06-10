@@ -63,3 +63,4 @@ def logout_view(request):
     logout(request)
     messages.success(request, "Déconnexion Réussi!")
     return redirect('home')
+

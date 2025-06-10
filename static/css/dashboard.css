@@ -115,6 +115,10 @@ small{
     font-size: 0.75rem;
 }
 
+div.dt-container .dt-paging .dt-paging-button.disabled{
+    color: var(--color-dark)!important;
+}
+
 .profile-photo{
     width: 2.8rem;
     height: 2.8rem;
@@ -328,7 +332,7 @@ main .recent-enter h2{
 
 main .recent-enter table{
     background: var(--color-white);
-    width: 100%;
+    width: 100%!important;
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
     text-align: center;
@@ -507,7 +511,7 @@ main .recent-enter a{
 }
 
 /*==============================MEDIA QUERRIES========================*/
-@media screen and (max-width:1200px){
+    /*@media screen and (max-width:1320px){
     .container{
         width: 94%;
         grid-template-columns: 7rem auto 23rem;
@@ -550,7 +554,7 @@ main .recent-enter a{
 }
 
 /*==============================MEDIA QUERRIES========================*/
-@media screen and (max-width:768px){
+@media screen and (max-width:1320px){
     .container{
         width: 100%;
         grid-template-columns: 1fr;
@@ -588,6 +592,10 @@ main .recent-enter a{
     aside .sidebar a{
         width: 100%;
         height: 3.4rem;
+    }
+    main .insights{
+        grid-template-columns: 1fr;
+        gap: 0;
     }
     
     aside .sidebar a:last-child{
@@ -657,4 +665,77 @@ main .recent-enter a{
     .right .top button span{
         font-size: 2rem;
     }
+}
+
+/*-------------------POPUP--------------------------*/
+
+/* Pop-up général */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-hidden {
+    display: none;
+}
+
+.popup {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    background: var(--color-white);
+}
+
+form input,form select, textarea, button.popup {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+}
+
+
+button.popup {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+button.popup:hover {
+    background: var(--color-primary-variant);
+    color: #fff;
+}
+
+/* Spécifique aux pop-ups */
+#popup-container-gc .popup {
+    border: 2px solid #007BFF;
+}
+
+#popup-container-pc .popup {
+    border: 2px solid var(--color-primary);
 }

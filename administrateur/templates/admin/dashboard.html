@@ -48,42 +48,153 @@
     </div>
     <div class="recent-enter">
         <h2>Entré récent</h2>
-        <table class="datatable" >
+        <table class="datatable"  >
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Entré</th>
-                    <th>Somme</th>
+                    <th>Grande Caisse</th>
+                    <th>Petite Caisse</th>
+                    <th>Total Caisse</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>15/02/24</td>
-                    <td>Rakitra</td>
-                    <td>15.000ar</td>
-                </tr>
-                <tr>
-                    <td>15/02/24</td>
-                    <td>Rakitra</td>
-                    <td>15.000ar</td>
-                </tr>
-                <tr>
-                    <td>15/02/24</td>
-                    <td>Rakitra</td>
-                    <td>15.000ar</td>
-                </tr>
-                <tr>
-                    <td>15/02/24</td>
-                    <td>Rakitra</td>
-                    <td>15.000ar</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
                 </tr>
             </tbody>
         </table>
-        <a href="#">Afficher Tout</a>
-        <!--Fin Petite Caisse-->
     </div>
 </div>
-<div id="caisse" class="content-section" style="display: none;">Contenu de Caisse</div>
-<div id="grande-caisse" class="content-section" style="display: none;">Contenu de Grande Caisse</div>
-<div id="petite-caisse" class="content-section" style="display: none;">Contenu de Petite Caisse</div>
+<div id="caisse" class="content-section" style="display: none;">
+    <h1>CAISSE</h1>
+    <div class="recent-enter">
+        <h2>Entré</h2>
+        <table class="datatable"  >
+            <thead>
+                <tr>
+                    <th>Montant Grande Caisse</th>
+                    <th>Montant Petite Caisse</th>
+                    <th>Total Caisse</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4.000.000ar</td>
+                    <td>1.000.000ar</td>
+                    <td>5.000.000ar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="grande-caisse" class="content-section" style="display: none;">
+    <h1>GRANDE CAISSE</h1>
+    <div class="recent-enter">
+        <h2>Entré</h2>
+        <table class="datatable"  >
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Motif</th>
+                    <th>Montant</th>
+                    <th>Total Grande Caisse</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn-add-gc" href="#" onclick="showPopup('Grande Caisse')">Ajouter Grande Caisse</a>
+    </div>
+</div>
+<div id="petite-caisse" class="content-section" style="display: none;">
+    <h1>PETITE CAISSE</h1>
+    <div class="recent-enter">
+        <h2>Ravitaillement</h2>
+        <table class="datatable"  >
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Motif</th>
+                    <th>Montant</th>
+                    <th>Total Petite Caisse</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn-add-pc" href="#" onclick="showPopup('Petite Caisse')">Ajouter Petite Caisse</a>
+    </div>
+</div>
+
+<!-- Pop-up Grande Caisse -->
+<div id="popup-container-gc" class="popup-container popup-hidden">
+    <div class="popup">
+        <span class="popup-close" onclick="hidePopup('gc')">×</span>
+        <h3>Ajouter à la Grande Caisse</h3>
+        <form id="form-gc">
+            <input type="hidden" name="type_caisse" value="Grande Caisse">
+            
+            <label for="type-gc">Type d'opération :</label>
+            <select id="type-gc" name="type" required>
+                <option value="Entrée">Entrée</option>
+                <option value="Sortie">Sortie</option>
+            </select>
+
+            <label for="date-gc">Date :</label>
+            <input type="date" id="date-gc" name="date" required>
+
+            <label for="motif-gc">Motif :</label>
+            <textarea id="motif-gc" name="motif" required></textarea>
+
+            <label for="montant-gc">Montant en Ar:</label>
+            <input type="number" id="montant-gc" name="montant" step="500" required>
+
+            <button class="popup" type="button" onclick="submitForm('gc')">Ajouter</button>
+        </form>
+    </div>
+</div>
+
+<!-- Pop-up Petite Caisse -->
+<div id="popup-container-pc" class="popup-container popup-hidden">
+    <div class="popup">
+        <span class="popup-close" onclick="hidePopup('pc')">×</span>
+        <h3>Ajouter à la Petite Caisse</h3>
+        <form id="form-pc">
+            <input type="hidden" name="type_caisse" value="Petite Caisse">
+            <label for="type-pc">Type d'opération :</label>
+            <select id="type-pc" name="type" required>
+                <option value="Entrée">Entrée</option>
+                <option value="Sortie">Sortie</option>
+            </select>
+
+            <label for="date-pc">Date :</label>
+            <input type="date" id="date-pc" name="date" required>
+
+            <label for="motif-pc">Motif :</label>
+            <textarea id="motif-pc" name="motif" required></textarea>
+
+            <label for="montant-pc">Montant en Ar:</label>
+            <input type="number" id="montant-pc" name="montant" step="500" required>
+
+            <button class="popup" type="button" onclick="submitForm('pc')">Ajouter</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

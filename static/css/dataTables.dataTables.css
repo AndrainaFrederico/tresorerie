@@ -12,6 +12,8 @@
   --dt-html-background: rgb(33, 37, 41);
 }
 
+
+
 table.dataTable td.dt-control {
   text-align: center;
   cursor: pointer;
@@ -273,7 +275,7 @@ table.dataTable thead th,
 table.dataTable thead td,
 table.dataTable tfoot th,
 table.dataTable tfoot td {
-  text-align: left;
+  text-align: center;
 }
 table.dataTable thead th.dt-head-left,
 table.dataTable thead td.dt-head-left,
@@ -514,13 +516,22 @@ table.dataTable.compact tbody td {
   padding: 4px;
 }
 
-div.dt-container div.dt-layout-row {
+div.dt-container div.dt-layout-row:nth-child(1) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 0.75em 0;
 }
+
+div.dt-container div.dt-layout-row:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.75em 0;
+}
+
 div.dt-container div.dt-layout-row div.dt-layout-cell {
   display: flex;
   justify-content: space-between;
@@ -633,13 +644,13 @@ div.dt-container .dt-paging .dt-paging-button.current, div.dt-container .dt-pagi
 }
 div.dt-container .dt-paging .dt-paging-button.disabled, div.dt-container .dt-paging .dt-paging-button.disabled:hover, div.dt-container .dt-paging .dt-paging-button.disabled:active {
   cursor: default;
-  color: rgba(0, 0, 0, 0.5) !important;
+  color: inherit;
   border: 1px solid transparent;
   background: transparent;
   box-shadow: none;
 }
 div.dt-container .dt-paging .dt-paging-button:hover {
-  color: white !important;
+  color: #7380ec!important;
   border: 1px solid #111;
   background-color: #111;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #585858), color-stop(100%, #111)); /* Chrome,Safari4+ */
