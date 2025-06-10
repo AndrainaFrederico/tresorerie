@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'tresorerie',
     'administrateur',
     'utilisateur',
+    'django_otp',
+    'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_email',
+    'two_factor',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -150,3 +155,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL='home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'andrainafrederico@gmail.com'  # adresse e-mail de l'expéditeur
+EMAIL_HOST_PASSWORD = 'fbjt ptgl nolu hizd' # Mot de passe de l'application généré dans Gmail
