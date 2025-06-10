@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'tresorerie.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'db-fiangonana',
+        'NAME':'db_fiangonana',
         'USER':'root',
         'PASSWORD':'Andraina-2022',
         'HOST':'127.0.0.1',
